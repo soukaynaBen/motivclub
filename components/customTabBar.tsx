@@ -1,28 +1,24 @@
-import {
-    Dimensions,
-    TouchableOpacity,
-    TouchableWithoutFeedback,
-    View,
-} from "react-native";
+import { DeviseWidth } from "@/hooks/get-dimensions";
+import { useEffect } from "react";
+import { TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 import Animated, {
-    useAnimatedStyle,
-    useSharedValue,
-    withTiming,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
 } from "react-native-reanimated";
 
-const { width } = Dimensions.get("window");
-
 export default function CustomTabBar({ state, descriptors, navigation }: any) {
-  const tabWidth = width / state.routes.length;
   const pillSize = 45;
   const marginBottom = 50;
   const rounded = 999;
   const translateX = useSharedValue(state.index * pillSize);
 
-  // update animation when tab changes
-  translateX.value = withTiming(state.index * pillSize, {
-    duration: 250,
-  });
+  useEffect(() => {
+    // update animation when tab changes
+    translateX.value = withTiming(state.index * pillSize, {
+      duration: 250,
+    });
+  }, [state.index]);
 
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{ translateX: translateX.value }],
@@ -38,7 +34,7 @@ export default function CustomTabBar({ state, descriptors, navigation }: any) {
           elevation: 0,
           bottom: marginBottom,
 
-          left: (width * 5) / 10,
+          left: (DeviseWidth * 5) / 10,
           transform: [{ translateX: (-15 * pillSize) / 10 }],
         }}
       >
