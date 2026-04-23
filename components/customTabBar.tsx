@@ -40,7 +40,7 @@ export default function CustomTabBar({ state, descriptors, navigation }: any) {
       >
         {/* 🔵 Sliding pill */}
         <Animated.View
-          className="items-center absolute justify-center bg-[#febc29] bottom-0 left-0"
+          className="items-center absolute justify-center bg-primary-1 bottom-0 left-0"
           style={[
             {
               width: pillSize,
