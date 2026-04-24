@@ -38,6 +38,7 @@ export default function CustomTabBar({ state, descriptors, navigation }: any) {
           position: "absolute",
           alignItems: "center",
           justifyContent: "center",
+          boxShadow: "0 4px 15px rgb(0 0 0 / 0.15)",
           backgroundColor: Colors.white,
           borderColor: Colors.white,
           borderRadius: rounded,

@@ -1,6 +1,6 @@
 import { Colors } from "@/constants/colors.enum";
 import React, { useEffect, useMemo, useState } from "react";
-import { View } from "react-native";
+import { Platform, View } from "react-native";
 import { BarChart } from "react-native-gifted-charts";
 
 export default function BarChartComponent() {
@@ -14,7 +14,7 @@ export default function BarChartComponent() {
     { value: 256, label: "Sat" },
     { value: 300, label: "Sun" },
   ];
-  const barWidth = 30;
+  const barWidth = Platform.OS === "web" ? 30 : 24;
   const axisWidth = 40;
   const maxValue = Math.max(...barData.map(({ value }) => value));
   const spacing = useMemo(() => {
