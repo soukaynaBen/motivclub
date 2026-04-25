@@ -20,12 +20,7 @@ export default function BarChartComponent() {
     { value: 250, label: "Mon" },
     { value: 500, label: "Tue" },
     { value: 745, label: "Wed" },
-    {
-      value: 320,
-      label: "Thu",
-      gradientColor: Colors.primary1,
-      frontColor: Colors.lightGray,
-    },
+    { value: 320, label: "Thu" },
     { value: 600, label: "Fri" },
     { value: 256, label: "Sat" },
     { value: 300, label: "Sun" },
@@ -53,7 +48,10 @@ export default function BarChartComponent() {
   }, [selectedBarIndex]);
   const barWidth = Platform.OS === "web" ? 30 : 24;
   const axisWidth = 40;
-  const maxValue = Math.max(...barData.map(({ value }) => value));
+  const maxBarValue = Math.max(...barData.map(({ value }) => value));
+  const maxValue =
+    Math.ceil(maxBarValue / Math.pow(10, maxBarValue.toString().length - 1)) *
+    Math.pow(10, maxBarValue.toString().length - 1);
   const spacing = useMemo(() => {
     return (
       (containerSeize.width - barData.length * barWidth - axisWidth) /
@@ -61,7 +59,7 @@ export default function BarChartComponent() {
     );
   }, [containerSeize.width]);
   useEffect(() => {
-    console.log({ containerSeize, spacing });
+    console.log({ maxValue, spacing });
   }, [containerSeize.width]);
   return (
     <View
@@ -76,14 +74,11 @@ export default function BarChartComponent() {
       <BarChart
         initialSpacing={2}
         showGradient
-        maxValue={
-          Math.ceil(maxValue / Math.pow(10, maxValue.toString().length - 1)) *
-          Math.pow(10, maxValue.toString().length - 1)
-        }
+        maxValue={maxValue}
         stepValue={200}
         spacing={spacing}
         barWidth={barWidth}
-        noOfSections={3}
+        noOfSections={4}
         barBorderRadius={20}
         data={getChartData()}
         yAxisTextStyle={{
@@ -97,11 +92,12 @@ export default function BarChartComponent() {
         yAxisThickness={0}
         xAxisThickness={0}
         endSpacing={0}
-        isAnimated
-        animationDuration={300}
+        isAnimated={Platform.OS !== "ios"}
+        animationDuration={1000}
         onPress={(_item: BarData, index: number) => {
           setSelectedBarIndex(selectedBarIndex === index ? null : index);
         }}
+        height={containerSeize.height}
       />
     </View>
   );

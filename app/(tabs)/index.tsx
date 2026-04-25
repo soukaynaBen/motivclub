@@ -61,7 +61,7 @@ export default function HomeScreen() {
   return (
     <ThemedView>
       <View className="">
-        <View className="justify-between items-center flex-row pt-4">
+        <View className="justify-between items-center flex-row">
           <View className="flex-row justify-center items-center gap-2">
             <Avatar className="size-10" alt="Avatar">
               <AvatarImage source={{ uri: imageUrl }} />

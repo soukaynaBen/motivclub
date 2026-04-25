@@ -15,8 +15,8 @@ export default function ThemedView({ children, style, className }: ViewProps) {
         end={{ x: 1, y: 1 }}
       >
         <SafeAreaView
-          style={Platform.OS === "web" && { padding: 16 }}
-          className={cn("flex-1 px-4", Platform.select({ web: "p-4" }))}
+          style={Platform.OS === "web" && { padding: 16, paddingTop: 32 }}
+          className={cn("flex-1 px-4 pt-8")}
         >
           {children}
         </SafeAreaView>

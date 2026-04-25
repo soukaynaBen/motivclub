@@ -15,7 +15,7 @@ import Animated, {
 export default function CustomTabBar({ state, descriptors, navigation }: any) {
   const { width } = useWindowDimensions();
   const pillSize = 45;
-  const marginBottom = 20;
+  const marginBottom = 40;
   const rounded = 999;
   const translateX = useSharedValue(state.index * pillSize);
 
