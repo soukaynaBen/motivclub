@@ -7,19 +7,20 @@ import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Text } from "@/components/ui/text";
 import { Colors } from "@/constants/colors.enum";
-import { cn } from "@/lib/utils";
 import { Bell, BicepsFlexed, ClockFading, Flame } from "lucide-react-native";
-import { useEffect, useRef, useState } from "react";
-import { FlatList, Platform, View } from "react-native";
+import { useEffect, useState } from "react";
+import { FlatList, View } from "react-native";
+
 export default function HomeScreen() {
   const unit = "kg";
   const name = "Rasel";
-  const fullName = "Rasel Ahmed ";
+  const fullName = "Rasel Ahmed";
   const score = 35;
   const weight = 70.5;
   const goal = 5;
   const imageUrl = "https://github.com/mrzachnugent.png";
   const [progress, setProgress] = useState(0);
+
   useEffect(() => {
     const timer = setTimeout(() => setProgress(score), 500);
     return () => clearTimeout(timer);
@@ -56,11 +57,11 @@ export default function HomeScreen() {
       backgroundColor: Colors.secondary2,
     },
   ];
-  const chartContainer = useRef<React.JSX.Element>(null);
+
   return (
     <ThemedView>
-      <View className=" p-4">
-        <View className="justify-between items-center  flex-row pt-4">
+      <View className="">
+        <View className="justify-between items-center flex-row pt-4">
           <View className="flex-row justify-center items-center gap-2">
             <Avatar className="size-10" alt="Avatar">
               <AvatarImage source={{ uri: imageUrl }} />
@@ -113,7 +114,7 @@ export default function HomeScreen() {
           <View>
             <View className="flex-row justify-between items-end py-1">
               <Text className="font-semibold" variant={"lead"}>
-                {weight} <Text className="text-muted-foreground ">{unit}</Text>
+                {weight} <Text className="text-muted-foreground">{unit}</Text>
               </Text>
               <Text variant={"muted"} className="text-muted-foreground">
                 {score}% completed
@@ -132,13 +133,14 @@ export default function HomeScreen() {
           numColumns={cards.length}
           keyExtractor={(item) => item.id}
           columnWrapperStyle={{ gap: 12 }}
-          contentContainerStyle={{
-            gap: 12,
-          }}
+          contentContainerStyle={{ paddingBottom: 12 }}
           renderItem={({
             item: { icon, title, description, backgroundColor },
           }) => (
-            <Card style={{ backgroundColor }} className="flex-1 px-2 min-h-10">
+            <Card
+              style={{ backgroundColor }}
+              className="flex-1 py-3 px-2  min-h-min"
+            >
               <Button
                 size={"icon"}
                 variant={"ghost"}
@@ -146,20 +148,19 @@ export default function HomeScreen() {
               >
                 {icon}
               </Button>
-              <View>
-                <Text variant={"large"}>{title}</Text>
-                <Text variant={"muted"}>{description}</Text>
+              <View className="">
+                <Text className="text-lg font-bold">{title}</Text>
+                <Text className="text-xs">{description}</Text>
               </View>
             </Card>
           )}
         />
-        <Text className="text-xl font-bold pt-2">This Week's activity</Text>
+        <Text className="text-lg font-bold py-2">This Week's activity</Text>
       </View>
-      <View className={cn("flex-1 px-4 ", Platform.select({ web: "mb-4" }))}>
-        <Card className="bg-white p-4 rounded-3xl flex-1 ">
-          <BarChart />
-        </Card>
-      </View>
+
+      <Card className="bg-white px-3 rounded-3xl flex-1">
+        <BarChart />
+      </Card>
     </ThemedView>
   );
 }

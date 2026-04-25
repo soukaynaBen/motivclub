@@ -1,17 +1,27 @@
+import { Colors } from "@/constants/colors.enum";
 import { cn } from "@/lib/utils";
+import { LinearGradient } from "expo-linear-gradient";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { ViewProps } from "react-native";
+import { Platform, ViewProps } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
 export default function ThemedView({ children, style, className }: ViewProps) {
   return (
-    <SafeAreaView
-      style={[style]}
-      className={cn("flex-1 bg-secondary-3", className)}
-    >
-      {children}
-      <StatusBar style="dark" />
-    </SafeAreaView>
+    <>
+      <LinearGradient
+        colors={[Colors.secondary2, Colors.white, Colors.secondary2]}
+        style={{ flex: 1 }}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+      >
+        <SafeAreaView
+          style={Platform.OS === "web" && { padding: 16 }}
+          className={cn("flex-1 px-4", Platform.select({ web: "p-4" }))}
+        >
+          {children}
+        </SafeAreaView>
+        <StatusBar style="dark" />
+      </LinearGradient>
+    </>
   );
 }

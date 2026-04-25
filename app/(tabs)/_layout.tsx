@@ -1,5 +1,6 @@
 import CustomTabBar from "@/components/customTabBar";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import { Tabs } from "expo-router";
 import React from "react";
 
@@ -18,7 +19,7 @@ export default function TabLayout() {
             tabBarShowLabel: false,
 
             tabBarIcon: ({ color }) => (
-              <FontAwesome name={"home"} size={28} color={color} />
+              <FontAwesome name={"home"} size={24} color={color} />
             ),
           }}
         />
@@ -27,7 +28,7 @@ export default function TabLayout() {
           options={{
             tabBarShowLabel: false,
             tabBarIcon: ({ color }) => (
-              <FontAwesome name={"apple"} size={28} color={color} />
+              <FontAwesome6 name="dumbbell" size={24} color={color} />
             ),
           }}
         />
@@ -36,7 +37,7 @@ export default function TabLayout() {
           options={{
             tabBarShowLabel: false,
             tabBarIcon: ({ color }) => (
-              <FontAwesome name={"bolt"} size={28} color={color} />
+              <FontAwesome name={"bolt"} size={24} color={color} />
             ),
           }}
         />
