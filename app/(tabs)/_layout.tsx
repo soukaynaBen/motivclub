@@ -24,7 +24,7 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
-          name="session"
+          name="workouts"
           options={{
             tabBarShowLabel: false,
             tabBarIcon: ({ color }) => (
@@ -33,7 +33,7 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
-          name="workout"
+          name="galery"
           options={{
             tabBarShowLabel: false,
             tabBarIcon: ({ color }) => (

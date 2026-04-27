@@ -92,8 +92,6 @@ export default function BarChartComponent() {
         yAxisThickness={0}
         xAxisThickness={0}
         endSpacing={0}
-        isAnimated={Platform.OS !== "ios"}
-        animationDuration={1000}
         onPress={(_item: BarData, index: number) => {
           setSelectedBarIndex(selectedBarIndex === index ? null : index);
         }}

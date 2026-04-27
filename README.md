@@ -1,50 +1,65 @@
-# Welcome to your Expo app 👋
+# 💪 MotivClub – Fitness Mobile App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Welcome to **MotivClub**, a modern fitness mobile application built with **Expo (React Native)**.
 
-## Get started
+---
 
-1. Install dependencies
+## 📱 Preview
 
-   ```bash
-   npm install
-   ```
+![MotivClub Design](./assets/images/fitnessdesign.jpeg)
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🚀 Features
 
-In the output, you'll find options to open the app in a
+- 🏋️ Workout Plans (Beginner, Intermediate, Advanced)
+- 📊 Weekly Activity Tracking
+- 🔥 Calories Burn Tracking
+- ⏱ Workout Duration Monitoring
+- 👤 User Profile Overview
+- 🎯 Goal Progress Indicator
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🛠 Tech Stack
 
-## Get a fresh project
+- Expo
+- React Native
+- TypeScript
+- Expo Router / React Navigation
+- Reanimated
+- NativeWind / Styled Components
 
-When you're ready, run:
+---
+
+## ⚙️ Installation
 
 ```bash
-npm run reset-project
+git clone https://github.com/soukaynaben/motivclub.git
+cd motivclub
+npm install
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 📦 Running the App
 
-To learn more about developing your project with Expo, look at the following resources:
+- Press `i` → iOS simulator
+- Press `a` → Android emulator
+- Scan QR → physical device
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
+## 🔮 Future Improvements
 
-Join our community of developers creating universal apps.
+- Authentication
+- Video workouts
+- AI recommendations
+- Community features
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+## 📄 License
+
+MIT

@@ -12,15 +12,28 @@ export default function RootLayout() {
     <>
       <Stack>
         <Stack.Screen
-          name="(tabs)"
+          name="(auth)"
           options={{
             headerShown: false,
             headerBlurEffect: "light",
             headerTransparent: Platform.OS === "ios" ? true : false,
           }}
         />
+        <Stack.Screen
+          name="(tabs)"
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="modal"
+          options={{
+            headerShown: false,
+            presentation: "fullScreenModal",
+          }}
+        />
       </Stack>
-      <StatusBar style="auto" />
+      <StatusBar style="dark" />
       <PortalHost />
     </>
   );

@@ -9,10 +9,13 @@ import { Colors } from "@/constants/colors.enum";
 import { useAssets } from "expo-asset";
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
 import { ChevronsRightIcon, ClockFading, Star } from "lucide-react-native";
 import { useLayoutEffect } from "react";
 import { FlatList, View } from "react-native";
 export default function TabTwoScreen() {
+  const router = useRouter();
+
   const [assets, error] = useAssets([
     require("@/assets/images/motivclub-image-2.png"),
   ]);
@@ -28,7 +31,7 @@ export default function TabTwoScreen() {
         <Text className="text-muted-foreground text-md">
           Simple workouts to get you started
         </Text>
-        <Card className="rounded-3xl  mt-4 min-h-72 p-0 overflow-hidden mb-6  border-black/5">
+        <Card className="rounded-3xl mt-4 min-h-72 p-0 overflow-hidden mb-6  border-black/5">
           {assets && (
             <Image
               style={{
@@ -58,7 +61,7 @@ export default function TabTwoScreen() {
             }}
           >
             <View className="h-20 absolute bottom-0 z-10 left-0 w-full flex  justify-center items-center pb-2 gap-4 flex-row px-4">
-              <View className=" ">
+              <View className="">
                 <Avatar className="size-14 rounded-md" alt="coach name">
                   <AvatarImage source={{ uri: assets?.[0]?.uri }} />
                   <AvatarFallback>
@@ -89,7 +92,11 @@ export default function TabTwoScreen() {
                   variant={"ghost"}
                   className="rounded-full bg-white justify-center items-center"
                 >
-                  <ChevronsRightIcon color={"black"} size={24} />
+                  <ChevronsRightIcon
+                    onPress={() => router.navigate("/modal")}
+                    color={"black"}
+                    size={24}
+                  />
                 </Button>
               </View>
             </View>

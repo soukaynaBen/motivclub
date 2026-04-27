@@ -149,7 +149,9 @@ export default function HomeScreen() {
                 {icon}
               </Button>
               <View className="">
-                <Text className="text-lg font-bold">{title}</Text>
+                <Text className="text-lg  tracking-tighter font-semibold">
+                  {title}
+                </Text>
                 <Text className="text-xs">{description}</Text>
               </View>
             </Card>
